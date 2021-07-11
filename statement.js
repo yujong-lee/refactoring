@@ -1,3 +1,8 @@
+const Play = {
+  TRAGEDY: 'tragedy',
+  COMEDY: 'comedy',
+};
+
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
