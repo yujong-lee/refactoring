@@ -27,7 +27,7 @@ function statement(invoice, plays) {
           thisAmount += 1000 * (perf.audience - 30);
         }
         break;
-      case 'comedy': // 희극
+      case Play.COMEDY:
         thisAmount = 30000;
 
         if (perf.audience > 20) {
