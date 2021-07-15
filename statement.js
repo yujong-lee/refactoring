@@ -1,11 +1,11 @@
 class xxPlay {
   constructor(data) {
-    this._tragedy = data.tragedy;
+    this._TRAGEDY = data.tragedy;
     this._COMEDY = data.COMEDY;
   }
 
   get tragedy() {
-    return this._tragedy;
+    return this._TRAGEDY;
   }
 
   get COMEDY() {
