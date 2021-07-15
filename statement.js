@@ -1,5 +1,5 @@
 const Play = {
-  TRAGEDY: 'tragedy',
+  tragedy: 'tragedy',
   COMEDY: 'comedy',
 };
 
@@ -20,7 +20,7 @@ function statement(invoice, plays) {
     let thisAmount = 0;
 
     switch (play.type) {
-      case Play.TRAGEDY:
+      case Play.tragedy:
         thisAmount = 40000;
 
         if (perf.audience > 30) {
