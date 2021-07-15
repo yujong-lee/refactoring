@@ -14,7 +14,7 @@ class xxPlay {
 }
 
 const Play = new xxPlay({
-  tragedy: 'tragedy',
+  TRAGEDY: 'tragedy',
   COMEDY: 'comedy',
 });
 
