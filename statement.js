@@ -1,6 +1,6 @@
 class xxPlay {
   constructor(data) {
-    this._TRAGEDY = data.tragedy;
+    this._TRAGEDY = data.TRAGEDY ?? data.tragedy;
     this._COMEDY = data.COMEDY;
   }
 
