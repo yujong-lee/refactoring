@@ -1,7 +1,22 @@
-const Play = {
+class xxPlay {
+  constructor(data) {
+    this._tragedy = data.tragedy;
+    this._COMEDY = data.COMEDY;
+  }
+
+  get tragedy() {
+    return this._tragedy;
+  }
+
+  get COMEDY() {
+    return this._COMEDY;
+  }
+}
+
+const Play = new xxPlay({
   tragedy: 'tragedy',
   COMEDY: 'comedy',
-};
+});
 
 function statement(invoice, plays) {
   let totalAmount = 0;
