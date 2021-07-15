@@ -8,6 +8,10 @@ class xxPlay {
     return this._TRAGEDY;
   }
 
+  get TRAGEDY() {
+    return this.tragedy;
+  }
+
   get COMEDY() {
     return this._COMEDY;
   }
