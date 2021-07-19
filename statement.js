@@ -16,11 +16,13 @@ function statement(invoice, plays) {
 
     switch (play.type) {
       case 'tragedy': // 비극
-        thisAmount = 40000;
 
-        if (perf.audience > 30) {
-          thisAmount += 1000 * (perf.audience - 30);
-        }
+        const limit = 30;
+        const exceeded = Math.max(perf.audience - limit, 0);
+        const surcharge = 1000 * exceeded
+
+        thisAmount = 40000 + surcharge;
+
         break;
       case 'comedy': // 희극
         thisAmount = 30000;
