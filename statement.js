@@ -2,6 +2,10 @@ function initResult(invoice) {
   return `청구내역 (고객명: ${invoice.customer})\n`;
 }
 
+function addPerformanceData(play, thisAmount, perf) {
+  return `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
+}
+
 const { format } = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -49,9 +53,7 @@ function statement(invoice, plays) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
 
-    result += `${play.name} : ${format(thisAmount / 100)} (${
-      perf.audience
-    }석)\n`;
+    result += addPerformanceData(play, thisAmount, perf);
     totalAmount += thisAmount;
   }
 
@@ -64,5 +66,3 @@ function statement(invoice, plays) {
 module.exports = {
   statement,
 }
-
-
