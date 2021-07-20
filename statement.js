@@ -1,5 +1,6 @@
 class Receipt {
-  constructor() {
+  constructor(format) {
+    this.format = format;
     this.header = '';
     this.performances = '';
     this.totalAmount = '';
@@ -11,11 +12,11 @@ class Receipt {
   }
 
   addPerformanceData(play, thisAmount, perf) {
-    this.performances = `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
+    this.performances = `${play.name} : ${this.format(thisAmount / 100)} (${perf.audience}석)\n`;
   }
 
   addTotalAmount(totalAmount) {
-    this.totalAmount += `총액: ${format(totalAmount / 100)}\n`;
+    this.totalAmount += `총액: ${this.format(totalAmount / 100)}\n`;
   }
 
   addVolumeCredits(volumeCredits) {
@@ -32,17 +33,17 @@ class Receipt {
   }
 }
 
-const { format } = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 2,
-});
-
 function statement(invoice, plays) {
+  const { format } = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  });
+  
   let totalAmount = 0;
   let volumeCredits = 0;
   
-  const xxxresult = new Receipt();
+  const xxxresult = new Receipt(format);
   xxxresult.initResult(invoice);
 
   for (let perf of invoice.performances) {
