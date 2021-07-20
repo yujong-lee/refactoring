@@ -1,7 +1,3 @@
-function addTotalAmount(totalAmount) {
-  return `총액: ${format(totalAmount / 100)}\n`;
-}
-
 function addVolumeCredits(volumeCredits) {
   return `적립 포인트: ${volumeCredits}점\n`;
 }
@@ -17,6 +13,10 @@ class Receipt {
 
   addPerformanceData(play, thisAmount, perf) {
     this.data += `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
+  }
+
+  addTotalAmount(totalAmount) {
+    this.data += `총액: ${format(totalAmount / 100)}\n`;
   }
 
   get result() {
@@ -79,7 +79,7 @@ function statement(invoice, plays) {
     totalAmount += thisAmount;
   }
 
-  result += addTotalAmount(totalAmount);
+  xxxresult.addTotalAmount(totalAmount);
   result += addVolumeCredits(volumeCredits);
 
   return xxxresult.result + result;
