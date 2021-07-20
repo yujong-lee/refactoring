@@ -17,7 +17,7 @@ class Receipt {
   }
 
   addTotalAmount(totalAmount) {
-    this.data += `총액: ${format(totalAmount / 100)}\n`;
+    this.totalAmount += `총액: ${format(totalAmount / 100)}\n`;
   }
 
   addVolumeCredits(volumeCredits) {
@@ -25,7 +25,7 @@ class Receipt {
   }
   
   get result() {
-    return this.header + this.performances + this.data;
+    return this.header + this.performances + this.totalAmount + this.data;
   }
 }
 
