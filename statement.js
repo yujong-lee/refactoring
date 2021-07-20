@@ -13,7 +13,7 @@ class Receipt {
   }
 
   addPerformanceData(play, thisAmount, perf) {
-    this.data += `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
+    this.performances = `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
   }
 
   addTotalAmount(totalAmount) {
@@ -25,7 +25,7 @@ class Receipt {
   }
   
   get result() {
-    return this.header + this.data;
+    return this.header + this.performances + this.data;
   }
 }
 
