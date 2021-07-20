@@ -14,6 +14,16 @@ function addVolumeCredits(volumeCredits) {
   return `적립 포인트: ${volumeCredits}점\n`;
 }
 
+class Receipt {
+  constructor() {
+    this.data = '';
+  }
+
+  get result() {
+    return this.data;
+  }
+}
+
 const { format } = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -23,7 +33,9 @@ const { format } = new Intl.NumberFormat('en-US', {
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
+
   let result = initResult(invoice);
+  const xxxresult = new Receipt();
 
 
   for (let perf of invoice.performances) {
@@ -68,7 +80,7 @@ function statement(invoice, plays) {
   result += addTotalAmount(totalAmount);
   result += addVolumeCredits(volumeCredits);
 
-  return result;
+  return xxxresult.result + result;
 }
 
 module.exports = {
