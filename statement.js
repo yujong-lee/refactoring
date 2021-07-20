@@ -33,8 +33,6 @@ const { format } = new Intl.NumberFormat('en-US', {
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
-
-  let result = '';
   
   const xxxresult = new Receipt();
   xxxresult.initResult(invoice);
@@ -82,7 +80,7 @@ function statement(invoice, plays) {
   xxxresult.addTotalAmount(totalAmount);
   xxxresult.addVolumeCredits(volumeCredits);
 
-  return xxxresult.result + result;
+  return xxxresult.result;
 }
 
 module.exports = {
