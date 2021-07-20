@@ -10,6 +10,10 @@ function addTotalAmount(totalAmount) {
   return `총액: ${format(totalAmount / 100)}\n`;
 }
 
+function addVolumeCredits(volumeCredits) {
+  return `적립 포인트: ${volumeCredits}점\n`;
+}
+
 const { format } = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -62,7 +66,7 @@ function statement(invoice, plays) {
   }
 
   result += addTotalAmount(totalAmount);
-  result += `적립 포인트: ${volumeCredits}점\n`;
+  result += addVolumeCredits(volumeCredits);
 
   return result;
 }
