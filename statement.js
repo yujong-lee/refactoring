@@ -45,7 +45,7 @@ function statement(invoice, plays) {
   
   const xxxresult = new Receipt(format);
   const receipt = new Receipt(format);;
-  xxxresult.writeHeader(invoice);
+  receipt.writeHeader(invoice);
 
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
