@@ -82,13 +82,13 @@ function statement(invoice, plays) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
 
-    xxxresult.writePerformanceData(play, thisAmount, perf)
+    receipt.writePerformanceData(play, thisAmount, perf)
 
     totalAmount += thisAmount;
   }
 
-  xxxresult.writeTotalAmount(totalAmount);
-  xxxresult.writeVolumeCredits(volumeCredits);
+  receipt.writeTotalAmount(totalAmount);
+  receipt.writeVolumeCredits(volumeCredits);
 
   return receipt.result + xxxresult.result;
 }
