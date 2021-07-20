@@ -1,7 +1,3 @@
-function addPerformanceData(play, thisAmount, perf) {
-  return `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
-}
-
 function addTotalAmount(totalAmount) {
   return `총액: ${format(totalAmount / 100)}\n`;
 }
@@ -17,6 +13,10 @@ class Receipt {
 
   initResult(invoice) {
     this.data += `청구내역 (고객명: ${invoice.customer})\n`;
+  }
+
+  addPerformanceData(play, thisAmount, perf) {
+    this.data += `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
   }
 
   get result() {
@@ -74,7 +74,8 @@ function statement(invoice, plays) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
 
-    result += addPerformanceData(play, thisAmount, perf);
+    xxxresult.addPerformanceData(play, thisAmount, perf)
+
     totalAmount += thisAmount;
   }
 
