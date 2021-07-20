@@ -1,7 +1,3 @@
-function initResult(invoice) {
-  return `청구내역 (고객명: ${invoice.customer})\n`;
-}
-
 function addPerformanceData(play, thisAmount, perf) {
   return `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
 }
@@ -19,6 +15,10 @@ class Receipt {
     this.data = '';
   }
 
+  initResult(invoice) {
+    this.data += `청구내역 (고객명: ${invoice.customer})\n`;
+  }
+
   get result() {
     return this.data;
   }
@@ -34,9 +34,10 @@ function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
 
-  let result = initResult(invoice);
+  let result = '';
+  
   const xxxresult = new Receipt();
-
+  xxxresult.initResult(invoice);
 
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
