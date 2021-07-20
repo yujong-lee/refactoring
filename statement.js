@@ -1,7 +1,11 @@
+function initResult(invoice) {
+  return `청구내역 (고객명: ${invoice.customer})\n`;
+}
+
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
-  let result = `청구내역 (고객명: ${invoice.customer})\n`;
+  let result = initResult(invoice);
 
   const format = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -59,3 +63,5 @@ function statement(invoice, plays) {
 module.exports = {
   statement,
 }
+
+
