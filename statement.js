@@ -1,7 +1,5 @@
 class Receipt {
   constructor() {
-    this.data = '';
-
     this.header = '';
     this.performances = '';
     this.totalAmount = '';
@@ -29,8 +27,7 @@ class Receipt {
       this.header + 
       this.performances + 
       this.totalAmount + 
-      this.volumeCredits +
-      this.data 
+      this.volumeCredits
     );
   }
 }
