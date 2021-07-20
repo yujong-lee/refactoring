@@ -44,6 +44,7 @@ function statement(invoice, plays) {
   let volumeCredits = 0;
   
   const xxxresult = new Receipt(format);
+  const receipt = new Receipt(format);;
   xxxresult.writeHeader(invoice);
 
   for (let perf of invoice.performances) {
@@ -89,7 +90,7 @@ function statement(invoice, plays) {
   xxxresult.writeTotalAmount(totalAmount);
   xxxresult.writeVolumeCredits(volumeCredits);
 
-  return xxxresult.result;
+  return receipt.result + xxxresult.result;
 }
 
 module.exports = {
