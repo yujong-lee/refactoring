@@ -6,6 +6,10 @@ function addPerformanceData(play, thisAmount, perf) {
   return `${play.name} : ${format(thisAmount / 100)} (${perf.audience}석)\n`;
 }
 
+function addTotalAmount(totalAmount) {
+  return `총액: ${format(totalAmount / 100)}\n`;
+}
+
 const { format } = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -57,7 +61,7 @@ function statement(invoice, plays) {
     totalAmount += thisAmount;
   }
 
-  result += `총액: ${format(totalAmount / 100)}\n`;
+  result += addTotalAmount(totalAmount);
   result += `적립 포인트: ${volumeCredits}점\n`;
 
   return result;
