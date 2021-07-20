@@ -7,19 +7,19 @@ class Receipt {
     this.volumeCredits = '';
   }
 
-  initResult(invoice) {
+  writeHeader(invoice) {
     this.header = `청구내역 (고객명: ${invoice.customer})\n`;
   }
 
-  addPerformanceData(play, thisAmount, perf) {
+  writePerformanceData(play, thisAmount, perf) {
     this.performances = `${play.name} : ${this.format(thisAmount / 100)} (${perf.audience}석)\n`;
   }
 
-  addTotalAmount(totalAmount) {
+  writeTotalAmount(totalAmount) {
     this.totalAmount += `총액: ${this.format(totalAmount / 100)}\n`;
   }
 
-  addVolumeCredits(volumeCredits) {
+  writeVolumeCredits(volumeCredits) {
     this.volumeCredits += `적립 포인트: ${volumeCredits}점\n`;
   }
   
@@ -44,7 +44,7 @@ function statement(invoice, plays) {
   let volumeCredits = 0;
   
   const xxxresult = new Receipt(format);
-  xxxresult.initResult(invoice);
+  xxxresult.writeHeader(invoice);
 
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
@@ -81,13 +81,13 @@ function statement(invoice, plays) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
 
-    xxxresult.addPerformanceData(play, thisAmount, perf)
+    xxxresult.writePerformanceData(play, thisAmount, perf)
 
     totalAmount += thisAmount;
   }
 
-  xxxresult.addTotalAmount(totalAmount);
-  xxxresult.addVolumeCredits(volumeCredits);
+  xxxresult.writeTotalAmount(totalAmount);
+  xxxresult.writeVolumeCredits(volumeCredits);
 
   return xxxresult.result;
 }
