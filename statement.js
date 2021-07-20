@@ -21,11 +21,17 @@ class Receipt {
   }
 
   addVolumeCredits(volumeCredits) {
-    this.data += `적립 포인트: ${volumeCredits}점\n`;
+    this.volumeCredits += `적립 포인트: ${volumeCredits}점\n`;
   }
   
   get result() {
-    return this.header + this.performances + this.totalAmount + this.data;
+    return (
+      this.header + 
+      this.performances + 
+      this.totalAmount + 
+      this.volumeCredits +
+      this.data 
+    );
   }
 }
 
