@@ -1,7 +1,3 @@
-function addVolumeCredits(volumeCredits) {
-  return `적립 포인트: ${volumeCredits}점\n`;
-}
-
 class Receipt {
   constructor() {
     this.data = '';
@@ -19,6 +15,10 @@ class Receipt {
     this.data += `총액: ${format(totalAmount / 100)}\n`;
   }
 
+  addVolumeCredits(volumeCredits) {
+    this.data += `적립 포인트: ${volumeCredits}점\n`;
+  }
+  
   get result() {
     return this.data;
   }
@@ -80,7 +80,7 @@ function statement(invoice, plays) {
   }
 
   xxxresult.addTotalAmount(totalAmount);
-  result += addVolumeCredits(volumeCredits);
+  xxxresult.addVolumeCredits(volumeCredits);
 
   return xxxresult.result + result;
 }
