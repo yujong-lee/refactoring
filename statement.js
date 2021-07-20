@@ -1,10 +1,15 @@
 class Receipt {
   constructor() {
     this.data = '';
+
+    this.header = '';
+    this.performances = '';
+    this.totalAmount = '';
+    this.volumeCredits = '';
   }
 
   initResult(invoice) {
-    this.data += `청구내역 (고객명: ${invoice.customer})\n`;
+    this.header = `청구내역 (고객명: ${invoice.customer})\n`;
   }
 
   addPerformanceData(play, thisAmount, perf) {
@@ -20,7 +25,7 @@ class Receipt {
   }
   
   get result() {
-    return this.data;
+    return this.header + this.data;
   }
 }
 
